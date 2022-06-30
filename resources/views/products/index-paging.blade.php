@@ -1,25 +1,19 @@
-<div class="col-12">
-    <div class="card">
-        <div class="card-header">
-            <h3 class="card-title">List Data Products</h3>
-        </div>
-        <div class="card-body">
-
-            <table class="table table-striped table-bordered" id="myDatatable" style="width: 100%;">
-                <thead class="thead-dark">
-                    <tr>
-                        <th>No</th>
-                        <th>Name</th>
-                        <th>Active</th>
-                        <th>Created at</th>
-                        <th>Updated at</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
-        </div>
+<div class="row">
+    <div class="col">
+        <table class="table table-striped nowrap" id="myDatatable">
+            <thead class="thead-dark">
+                <tr>
+                    <th>No</th>
+                    <th>Name</th>
+                    <th>Active</th>
+                    <th>Created at</th>
+                    <th>Updated at</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
     </div>
 </div>
 <script type="text/javascript">
@@ -29,7 +23,7 @@
         var table = $('#myDatatable').DataTable({
             processing: true,
             serverSide: true,
-            autowidth: false,
+            bAutoWidth: false,
             scrollX: true,
             order: [
                 [1, 'asc']

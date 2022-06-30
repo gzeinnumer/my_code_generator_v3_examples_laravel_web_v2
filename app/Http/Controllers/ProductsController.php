@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\ProductsModel;
 use Illuminate\Http\Request;
 
+use Yajra\DataTables\Facades\DataTables;
+// composer require yajra/laravel-datatables-oracle:"~9.0"
+
 class ProductsController extends Controller
 {
     //list
@@ -80,7 +83,11 @@ class ProductsController extends Controller
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function ($row) {
-                    $actionBtn = "<td>aksi</td>";
+                    $actionBtn = "<td>" .
+                        '    <a href="/products/find/' . $row->id . '" class="btn btn-info btn-sm ">Detail</a>' .
+                        '    <a href="/products/update/' . $row->id . '" class="btn btn-warning btn-sm ">Edit</a>' .
+                        '    <a href="/products/delete/' . $row->id . '" class="btn btn-danger btn-sm">Delete</a>' .
+                        "</td>";
                     return $actionBtn;
                 })
                 ->rawColumns(['action'])
@@ -95,9 +102,9 @@ class ProductsController extends Controller
 
         $data = ProductsModel::select();
 
-        if ($flag_active != "") {
-            $data = $data->where("products.flag_active", "=", $flag_active);
-        }
+        // if ($flag_active != "") {
+        //     $data = $data->where("products.flag_active", "=", $flag_active);
+        // }
 
         if ($date_start != "" && $date_end != "") {
             $data = $data->wherebetween("products.created_at", array($date_start . " 00:00:00", $date_end . " 23:59:59"));
@@ -107,7 +114,7 @@ class ProductsController extends Controller
             $data = $data->where("products.created_at", "<=", $date_end . " 23:59:59");
         }
 
-        $data = $data->orderBy('products.flag_active', 'desc');
+        // $data = $data->orderBy('products.flag_active', 'desc');
         $data = $data->get();;
 
         return $data;
