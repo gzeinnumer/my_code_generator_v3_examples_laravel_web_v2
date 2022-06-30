@@ -25,6 +25,7 @@
             serverSide: true,
             bAutoWidth: false,
             scrollX: true,
+            ordering: false,
             order: [
                 [1, 'asc']
             ],
@@ -50,9 +51,9 @@
                     width: '30px',
                     render: function(data, type, row) {
                         if (data == 1) {
-                            return '<span class="badge badge-sm bg-green text-uppercase ">Active</span>';
+                            return '<b>Active</b>';
                         } else {
-                            return '<span class="badge badge-sm bg-red text-uppercase ">Inactive</span>';
+                            return '<b>Inactive</b>';
                         }
                     }
                 },
