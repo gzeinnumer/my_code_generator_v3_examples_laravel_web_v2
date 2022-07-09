@@ -33,13 +33,13 @@ class ProductsController extends Controller
     }
 
     //detail
-    public function findShow($id)
+    public function findShow()
     {
         return view('products.find');
     }
 
     //update
-    public function updateShow($id)
+    public function updateShow()
     {
         return view('products.edit');
     }
@@ -102,10 +102,6 @@ class ProductsController extends Controller
 
         $data = ProductsModel::select();
 
-        // if ($flag_active != "") {
-        //     $data = $data->where("products.flag_active", "=", $flag_active);
-        // }
-
         if ($date_start != "" && $date_end != "") {
             $data = $data->wherebetween("products.created_at", array($date_start . " 00:00:00", $date_end . " 23:59:59"));
         } else if ($date_start != "") {
@@ -114,7 +110,6 @@ class ProductsController extends Controller
             $data = $data->where("products.created_at", "<=", $date_end . " 23:59:59");
         }
 
-        // $data = $data->orderBy('products.flag_active', 'desc');
         $data = $data->get();;
 
         return $data;

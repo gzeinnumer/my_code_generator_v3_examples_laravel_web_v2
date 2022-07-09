@@ -29,9 +29,9 @@ Route::prefix('products')->group(function () {
     Route::get('/create', [ProductsController::class, 'createShow'])->name('products.createShow');
     Route::post('/create', [ProductsController::class, 'createPerform'])->name('products.createPerform');
     //info
-    Route::get('/find/{id}', [ProductsController::class, 'findShow'])->name('products.findShow');
+    Route::get('/find', [ProductsController::class, 'findShow'])->name('products.findShow');
     //update
-    Route::get('/update/{id}', [ProductsController::class, 'updateShow'])->name('products.editShow');
+    Route::get('/update', [ProductsController::class, 'updateShow'])->name('products.editShow');
     Route::post('/update', [ProductsController::class, 'updatePerform'])->name('products.updatePerform');
     //delete
     Route::get('/delete/{id}', [ProductsController::class, 'deleteShow'])->name('products.deleteShow');
