@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col">
         <div class="mb-3">
-            <label class="form-label">Data Products Per Month</label>
+            <label class="form-label">Chart Products</label>
             <div class="input-group mb-2">
                 <input type="date" id="date_products" class="form-control" placeholder="17/06/2022">
                 <button class="btn" type="button" onclick="chart()">Cari</button>
