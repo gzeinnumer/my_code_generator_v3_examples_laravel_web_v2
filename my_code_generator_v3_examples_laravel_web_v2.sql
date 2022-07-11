@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Waktu pembuatan: 03 Jul 2022 pada 11.48
+-- Waktu pembuatan: 11 Jul 2022 pada 08.17
 -- Versi server: 10.4.21-MariaDB
 -- Versi PHP: 7.4.27
 
@@ -108,11 +108,10 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `name`, `flag_active`, `created_at`, `updated_at`) VALUES
-(1, 'Minggu 1', 1, '2022-04-11 18:28:08', '2022-06-18 19:05:21'),
-(2, 'Minggu 2', 1, '2022-04-12 18:28:17', '2022-04-12 18:28:17'),
+(1, 'Minggu 1', 1, '2022-04-11 18:28:08', '2022-07-11 05:05:04'),
+(2, 'Mng 2', 1, '2022-04-12 18:28:17', '2022-07-11 06:17:19'),
 (3, 'Minggu 3', 1, '2022-04-12 18:28:23', '2022-04-12 18:28:23'),
-(4, 'Minggu 4', 1, '2022-04-12 18:28:29', '2022-05-31 13:01:49'),
-(6, 'Minggu 5', 1, '2022-06-18 19:05:09', '2022-06-18 19:05:09');
+(4, 'Minggu 4', 1, '2022-04-12 18:28:29', '2022-07-11 06:17:26');
 
 -- --------------------------------------------------------
 
@@ -164,6 +163,12 @@ ALTER TABLE `personal_access_tokens`
   ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
 
 --
+-- Indeks untuk tabel `products`
+--
+ALTER TABLE `products`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indeks untuk tabel `users`
 --
 ALTER TABLE `users`
@@ -192,6 +197,12 @@ ALTER TABLE `migrations`
 --
 ALTER TABLE `personal_access_tokens`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT untuk tabel `products`
+--
+ALTER TABLE `products`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `users`

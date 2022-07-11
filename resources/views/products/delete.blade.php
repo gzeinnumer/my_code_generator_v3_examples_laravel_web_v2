@@ -7,19 +7,35 @@
       </div>
       <form name="dFormDelete" action="{{ route('products.deletePerform') }}" method="POST">
         @csrf
-        <input type="text" class="form-control" id="id" name="id" placeholder="ID" readonly required>
+        <input type="hidden" class="form-control" id="id" name="id" placeholder="ID" required readonly>
+        <br>
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+              <label for="created_at">Created At</label>
+              <input type="text" class="form-control" id="created_at" name="created_at" required readonly>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-group">
+              <label for="updated_at">Updated At</label>
+              <input type="text" class="form-control" id="updated_at" name="updated_at" required readonly>
+            </div>
+          </div>
+        </div>
         <div class="form-group">
           <label for="name">Name</label>
           <input type="text" class="form-control" id="name" name="name" placeholder="Name" readonly required>
         </div>
         <div class="form-group">
-          <label for="flag_active" class="form-label">Active</label>
-          <select name="flag_active" class="form-control" aria-label="Default select example" required disabled>
+          <label for="flag_active">Active</label>
+          <select name="flag_active" class="form-control" aria-label="Default select example" disabled required>
             <option disabled selected value="">Select Active</option>
-            <option value="1">1</option>
-            <option value="0">0</option>
+            <option value="1">Active</option>
+            <option value="0">Inactive</option>
           </select>
         </div>
+        <br>
         <div class="row justify-content-end p-2">
           <button type="submit" class="btn btn-danger btn-sm">Delete</button>
         </div>

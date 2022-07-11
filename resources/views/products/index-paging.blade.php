@@ -48,14 +48,6 @@
                 {
                     data: 'flag_active',
                     name: 'flag_active',
-                    width: '30px',
-                    render: function(data, type, row) {
-                        if (data == 1) {
-                            return '<b>Active</b>';
-                        } else {
-                            return '<b>Inactive</b>';
-                        }
-                    }
                 },
                 {
                     data: 'created_at',

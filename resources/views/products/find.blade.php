@@ -6,19 +6,35 @@
         <div class="col-md-6 offset-md-3 text-center">Detail Data Products</div>
       </div>
       <form name="dFormFind">
-        <input type="text" class="form-control" id="id" name="id" placeholder="ID" required readonly>
+        <input type="hidden" class="form-control" id="id" name="id" onchange="validate()" required readonly>
+        <br>
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+              <label for="created_at">Created At</label>
+              <input type="text" class="form-control" id="created_at" name="created_at" required readonly>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-group">
+              <label for="updated_at">Updated At</label>
+              <input type="text" class="form-control" id="updated_at" name="updated_at" required readonly>
+            </div>
+          </div>
+        </div>
         <div class="form-group">
           <label for="name">Name</label>
-          <input type="text" class="form-control" id="name" name="name" placeholder="Name" required readonly>
+          <input type="text" class="form-control" id="name" name="name" placeholder="Name" readonly required>
         </div>
         <div class="form-group">
-          <label for="flag_active" class="form-label">Active</label>
-          <select name="flag_active" class="form-control" aria-label="Default select example" required disabled>
+          <label for="flag_active">Active</label>
+          <select name="flag_active" class="form-control" aria-label="Default select example" disabled required>
             <option disabled selected value="">Select Active</option>
-            <option value="1">1</option>
-            <option value="0">0</option>
+            <option value="1">Active</option>
+            <option value="0">Inactive</option>
           </select>
         </div>
+        <br>
         <div class="row justify-content-end p-2">
           <a type="button" href="{{ route('products.index') }}" class="btn btn-info btn-sm">Reset</a>
         </div>

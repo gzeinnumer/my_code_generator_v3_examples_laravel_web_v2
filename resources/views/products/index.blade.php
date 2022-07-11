@@ -22,6 +22,10 @@
 
   <br>
 
+  @include('products.chart')
+
+  <br>
+
   @include('products.index-tables')
 
 </div>

@@ -12,13 +12,14 @@
           <input type="text" class="form-control" id="name" name="name" placeholder="Name" required>
         </div>
         <div class="form-group">
-          <label for="flag_active" class="form-label">Active</label>
+          <label for="flag_active">Active</label>
           <select name="flag_active" class="form-control" aria-label="Default select example" required>
             <option disabled selected value="">Select Active</option>
-            <option value="1">1</option>
-            <option value="0">0</option>
+            <option value="1">Active</option>
+            <option value="0">Inactive</option>
           </select>
         </div>
+        <br>
         <div class="row justify-content-end p-2">
           <button type="submit" class="btn btn-primary btn-sm">Submit</button>
         </div>
