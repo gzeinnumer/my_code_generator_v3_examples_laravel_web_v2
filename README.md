@@ -3,7 +3,11 @@
 ---
 #### Laravel Start
 
-
+- Just clone it. 
+- Import Database.
+  - file name `my_code_generator_v3_examples_laravel_web_v2.sql`.
+- Setup `.env`.
+- And run this code in terminal
 ```
 composer install --ignore-platform-reqs
 ```
