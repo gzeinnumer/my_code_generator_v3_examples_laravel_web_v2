@@ -26,9 +26,6 @@
             bAutoWidth: false,
             scrollX: true,
             ordering: false,
-            order: [
-                [1, 'asc']
-            ],
             ajax: {
                 type: 'GET',
                 url: "{{ route('products.data') }}",
@@ -39,7 +36,7 @@
                     name: 'DT_RowIndex',
                     orderable: false,
                     searchable: false,
-                    width: '15px'
+                    width: '30px'
                 },
                 {
                     data: 'name',
