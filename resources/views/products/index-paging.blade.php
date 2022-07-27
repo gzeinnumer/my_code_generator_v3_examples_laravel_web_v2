@@ -36,7 +36,7 @@
                     name: 'DT_RowIndex',
                     orderable: false,
                     searchable: false,
-                    width: '30px'
+                    width: '40px'
                 },
                 {
                     data: 'name',
@@ -69,7 +69,11 @@
                     next: '&#8594;', // or '→'
                     previous: '&#8592;', // or '←' 
                 }
-            }
+            },
+            columnDefs: [{
+                className: 'text-center',
+                targets: [0]
+            }, ]
         });
     });
 </script>
