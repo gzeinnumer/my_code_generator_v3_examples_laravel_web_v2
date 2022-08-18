@@ -42,6 +42,10 @@ composer require yajra/laravel-datatables-oracle:"~9.0"
 php artisan vendor:publish --provider="Yajra\DataTables\DataTablesServiceProvider"
 ```
 
+```php
+use Yajra\DataTables\Facades\DataTables;
+```
+
 ---
 
 ```

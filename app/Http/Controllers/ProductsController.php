@@ -111,7 +111,7 @@ class ProductsController extends Controller
         $date_start = $request->get("date_start");
         $date_end = $request->get("date_end");
 
-        $data = ProductsModel::select();
+        $data = ProductsModel::select('products.*');
 
         if ($date_start != "" && $date_end != "") {
             $data = $data->wherebetween("products.created_at", array($date_start . " 00:00:00", $date_end . " 23:59:59"));
@@ -131,16 +131,21 @@ class ProductsController extends Controller
         $colors = ["#206bc4", "#4299e1", "#4263eb", "#ae3ec9", "#d6336c", "#d63939", "#f76707", "#f59f00", "#74b816", "#2fb344", "#0ca678", "#17a2b8", "#1e293b", "#626976"];
         shuffle($colors);
 
-        $values = ProductsModel::select()->get();
+        $values = ProductsModel::select('products.*')->get();
 
         $labels = [];
         $data1 = [];
         $color = [];
+        $colorCount = 0;
 
         for ($i = 0; $i < count($values); $i++) {
             $labels[] = $values[$i]->id;
             $data1[] = ProductsModel::where(['id' => $values[$i]->id])->get()->count();
-            $color[] = $colors[$i];
+            $colorCount++;
+            if ($colorCount == count($colors)) {
+                $colorCount = 0;
+            }
+            $color[] = $colors[$colorCount];
         }
 
         $datasets = [];

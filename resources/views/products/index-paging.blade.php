@@ -22,7 +22,7 @@
         var jsonData = paramsToJson(url);
         var table = $('#myDatatable').DataTable({
             processing: true,
-            serverSide: true,
+            serverSide: false,
             bAutoWidth: false,
             scrollX: true,
             ordering: false,
