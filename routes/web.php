@@ -48,3 +48,33 @@ Route::prefix('products')->group(function () {
         Route::get('/json', [ProductsController::class, 'getData']);
     }
 });
+
+
+use App\Http\Controllers\ExamplesV1Controller;
+
+Route::prefix('examplesv1')->group(function () {
+    //list
+    Route::get('/', [ExamplesV1Controller::class, 'index'])->name('examplesv1.index');
+    //add
+    Route::get('/create', [ExamplesV1Controller::class, 'createShow'])->name('examplesv1.createShow');
+    Route::post('/create', [ExamplesV1Controller::class, 'createPerform'])->name('examplesv1.createPerform');
+    //info
+    Route::get('/find/{id}', [ExamplesV1Controller::class, 'findShow'])->name('examplesv1.findShow');
+    //update
+    Route::get('/update/{id}', [ExamplesV1Controller::class, 'updateShow'])->name('examplesv1.editShow');
+    Route::post('/update', [ExamplesV1Controller::class, 'updatePerform'])->name('examplesv1.updatePerform');
+    //delete
+    Route::get('/delete/{id}', [ExamplesV1Controller::class, 'deleteShow'])->name('examplesv1.deleteShow');
+    Route::post('/delete', [ExamplesV1Controller::class, 'deletePerform'])->name('examplesv1.deletePerform');
+    //data by id
+    Route::get('/json/{id}', [ExamplesV1Controller::class, 'getDataById']);
+    //dataTables
+    Route::get('/data', [ExamplesV1Controller::class, 'dataTables'])->name('examplesv1.data');
+    //chart
+    Route::get('/chart/{date}', [ExamplesV1Controller::class, 'getChart']);
+
+    if (App::hasDebugModeEnabled()) {
+        //dataTables json
+        Route::get('/json', [ExamplesV1Controller::class, 'getData']);
+    }
+});
